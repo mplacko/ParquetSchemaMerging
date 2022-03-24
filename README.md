@@ -1,5 +1,5 @@
 # ParquetSchemaMerging
-An example for explaining schema evolution with Parquet (column based) binary data format. Starting with a simple schema, adding new columns, deleting existing columns and ending up with multiple Parquet files with different but compatible schemas
+An example for explaining schema evolution with Parquet (column based) binary data format. Starting with a simple schema, adding new columns, deleting existing columns and ending up with multiple Parquet files with different but compatible schemas.
 
 ### HOW TO CONFIGURE THE PROJECT
 - `ParquetSchemaMerging.sh`
