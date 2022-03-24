@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.placko.examples.spark</groupId>
+  <artifactId>ParquetSchemaMerging</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Marian Placko</name>
+  <description>An example for explaining schema evolution with Parquet (column based) binary data format. Starting with a simple schema, adding new columns, deleting existing columns and ending up with multiple Parquet files with different but compatible schemas.</description>
+  <properties>
+		<revision>Local-SNAPSHOT</revision>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<scala.version>2.11</scala.version>
+		<!-- TODO: specify newer spark2app_2.11-common version if required -->
+		<spark2app-common.version>2.11.12</spark2app-common.version>
+		<spark.version>2.4.0</spark.version>
+		
+		<jar.main.class>eu.placko.app.ParquetSchemaMerging</jar.main.class>
+	</properties>
+	
+	<!-- Spark -->
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_${scala.version}</artifactId>
+			<scope>provided</scope>
+			<version>${spark.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_${scala.version}</artifactId>
+			<scope>provided</scope>
+			<version>${spark.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-hive_${scala.version}</artifactId>
+			<scope>provided</scope>
+			<version>${spark.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>shaded-jar</id>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement />
+	</build>
+</project>
